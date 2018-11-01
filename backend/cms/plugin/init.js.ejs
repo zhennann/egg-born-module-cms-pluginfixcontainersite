@@ -1,0 +1,19 @@
+$(document).ready(function() {
+  _fixContainerSite($('.container-site'), $('footer'));
+});
+
+function _fixContainerSite($containerSite, $footer) {
+  // init
+  const $window = $(window);
+
+  // onScroll
+  const _onScroll = function() {
+    const diff = $window.height() - ($footer.offset().top + $footer.outerHeight());
+    const height = $containerSite.outerHeight();
+    $containerSite.css('min-height', height + diff);
+  };
+
+  // bind event
+  $window.on('scroll.infinite resize.infinite', _onScroll);
+  _onScroll();
+}
