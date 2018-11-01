@@ -8,8 +8,8 @@ function _fixContainerSite($containerSite, $footer) {
 
   // onScroll
   const _onScroll = function() {
-    const diff = $window.height() - ($footer.offset().top + $footer.outerHeight());
-    const height = $containerSite.outerHeight();
+    const diff = parseInt($window.height() - ($footer.offset().top + $footer.outerHeight()));
+    const height = parseInt($containerSite.outerHeight());
     $containerSite.css('min-height', height + diff);
   };
 
